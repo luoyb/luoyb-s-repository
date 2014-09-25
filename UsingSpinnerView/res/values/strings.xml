@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">UsingSpinnerView</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="presidents_array">
+        <item >Dwight D. Eisenhower</item>
+        <item >John F. Kennedy</item>
+        <item >Lyndon B. Johnson</item>
+        <item >Richard Nixon</item>
+        <item >Gerald Ford</item>
+    </string-array>
+
+</resources>
