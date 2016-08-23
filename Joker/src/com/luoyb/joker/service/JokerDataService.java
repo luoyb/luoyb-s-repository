@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Map;
 
 import android.os.AsyncTask;
-import android.widget.SimpleAdapter;
 import cc.cnfc.message.dto.JokerResult;
 import cc.cnfc.message.service.MJoker;
+
+import com.luoyb.joker.adapter.JokerAdapter;
 
 public class JokerDataService extends
 		AsyncTask<Integer, Void, List<Map<String, Object>>> {
 
 	private List<Map<String, Object>> data;
-	private SimpleAdapter adapter;
+	private JokerAdapter adapter;
 
-	public JokerDataService(SimpleAdapter adapter,
-			List<Map<String, Object>> data) {
+	public JokerDataService(JokerAdapter adapter, List<Map<String, Object>> data) {
 		this.adapter = adapter;
 		this.data = data;
 	}

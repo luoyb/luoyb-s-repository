@@ -25,27 +25,30 @@ public final class R {
         public static final int bottom_bar=0x7f020000;
         public static final int ic_launcher=0x7f020001;
         public static final int joker=0x7f020002;
-        public static final int tab_address_normal=0x7f020003;
-        public static final int tab_address_pressed=0x7f020004;
-        public static final int tab_find_frd_normal=0x7f020005;
-        public static final int tab_find_frd_pressed=0x7f020006;
-        public static final int tab_settings_normal=0x7f020007;
-        public static final int tab_settings_pressed=0x7f020008;
-        public static final int tab_weixin_normal=0x7f020009;
-        public static final int tab_weixin_pressed=0x7f02000a;
+        public static final int like_icon=0x7f020003;
+        public static final int tab_address_normal=0x7f020004;
+        public static final int tab_address_pressed=0x7f020005;
+        public static final int tab_find_frd_normal=0x7f020006;
+        public static final int tab_find_frd_pressed=0x7f020007;
+        public static final int tab_settings_normal=0x7f020008;
+        public static final int tab_settings_pressed=0x7f020009;
+        public static final int tab_weixin_normal=0x7f02000a;
+        public static final int tab_weixin_pressed=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000a;
-        public static final int id_tab_address=0x7f080004;
-        public static final int id_tab_address_img=0x7f080005;
-        public static final int id_tab_frd=0x7f080006;
-        public static final int id_tab_frd_img=0x7f080007;
-        public static final int id_tab_settings=0x7f080008;
-        public static final int id_tab_settings_img=0x7f080009;
-        public static final int id_tab_weixin=0x7f080002;
-        public static final int id_tab_weixin_img=0x7f080003;
+        public static final int action_settings=0x7f08000c;
+        public static final int id_tab_address=0x7f080006;
+        public static final int id_tab_address_img=0x7f080007;
+        public static final int id_tab_frd=0x7f080008;
+        public static final int id_tab_frd_img=0x7f080009;
+        public static final int id_tab_settings=0x7f08000a;
+        public static final int id_tab_settings_img=0x7f08000b;
+        public static final int id_tab_weixin=0x7f080004;
+        public static final int id_tab_weixin_img=0x7f080005;
         public static final int id_viewpage=0x7f080000;
-        public static final int textJoker=0x7f080001;
+        public static final int jokerCreateTime=0x7f080003;
+        public static final int jokerLikeCount=0x7f080002;
+        public static final int jokerText=0x7f080001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

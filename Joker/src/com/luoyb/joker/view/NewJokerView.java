@@ -10,14 +10,13 @@ import android.content.Context;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.AppActivity.ActionBarColorTheme;
-import com.luoyb.joker.R;
+import com.luoyb.joker.adapter.JokerAdapter;
 import com.luoyb.joker.core.BounceListView;
 import com.luoyb.joker.core.InfiniteScrollListener;
 import com.luoyb.joker.service.JokerDataService;
@@ -26,7 +25,7 @@ public class NewJokerView {
 
 	private List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 
-	private SimpleAdapter adapter;
+	private JokerAdapter adapter;
 
 	private Context context;
 
@@ -51,8 +50,11 @@ public class NewJokerView {
 
 		BounceListView lsView = new BounceListView(context);
 
-		adapter = new SimpleAdapter(context, data, R.layout.joker_list_item,
-				new String[] { "content" }, new int[] { R.id.textJoker });
+		// adapter = new SimpleAdapter(context, data, R.layout.joker_list_item,
+		// new String[] { "content", "createTime", "likeCount" },
+		// new int[] { R.id.jokerText, R.id.jokerCreateTime,
+		// R.id.jokerLikeCount });
+		adapter = new JokerAdapter(context, data);
 
 		lsView.setAdapter(adapter);
 
