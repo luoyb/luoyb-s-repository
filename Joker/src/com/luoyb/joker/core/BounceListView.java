@@ -8,7 +8,7 @@ import android.widget.ListView;
 public class BounceListView extends ListView {
 
 	// 初始可拉动Y轴方向距离
-	private static final int MAX_Y_OVERSCROLL_DISTANCE = 100;
+	private static final int MAX_Y_OVERSCROLL_DISTANCE = 200;
 	// 上下文环境
 	private Context mContext;
 	// 实际可上下拉动Y轴上的距离

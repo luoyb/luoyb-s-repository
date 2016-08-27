@@ -11,7 +11,7 @@ import com.luoyb.joker.core.BounceListView;
 import com.luoyb.joker.core.InfiniteScrollListener;
 import com.luoyb.joker.service.JokerDataService;
 
-public class NewJokerView {
+public class HotJokerView {
 
 	private List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 
@@ -19,7 +19,7 @@ public class NewJokerView {
 
 	private Context context;
 
-	public NewJokerView(Context context) {
+	public HotJokerView(Context context) {
 		this.context = context;
 	}
 

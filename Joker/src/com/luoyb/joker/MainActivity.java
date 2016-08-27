@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.luoyb.joker.core.ViewPaperAdapter;
-import com.luoyb.joker.view.NewJokerView;
+import com.luoyb.joker.view.JokerViewLayout;
 
 @SuppressLint("InflateParams")
 public class MainActivity extends Activity implements OnClickListener,
@@ -78,7 +78,7 @@ public class MainActivity extends Activity implements OnClickListener,
 		View tab03 = mLayoutInflater.inflate(R.layout.tab03, null);
 		View tab04 = mLayoutInflater.inflate(R.layout.tab04, null);
 
-		mViews.add(new NewJokerView(this).getView());
+		mViews.add(new JokerViewLayout(this).getView());
 		mViews.add(tab02);
 		mViews.add(tab03);
 		mViews.add(tab04);

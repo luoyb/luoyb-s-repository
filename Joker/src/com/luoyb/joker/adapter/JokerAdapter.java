@@ -21,8 +21,8 @@ public class JokerAdapter extends BaseAdapter {
 	private List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 	private LayoutInflater mInflater;
 
-	public JokerAdapter(Context context, List<Map<String, Object>> data) {
-		this.context = context;
+	public JokerAdapter(Context ctx, List<Map<String, Object>> data) {
+		this.context = ctx;
 		this.data = data;
 		this.mInflater = LayoutInflater.from(context);
 	}
