@@ -2,6 +2,7 @@ package com.luoyb.joker.view;
 
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +27,9 @@ public class JokerViewLayout implements OnClickListener {
 
 	private Context context;
 
+	private Button newBtn;
+	private Button hotBtn;
+
 	public JokerViewLayout(Context context) {
 		this.context = context;
 	}
@@ -44,11 +48,10 @@ public class JokerViewLayout implements OnClickListener {
 		LinearLayout linearLayout = (LinearLayout) fLayoutInflater.inflate(
 				R.layout.joker_button, null);
 
-		Button newBtn = (Button) linearLayout
-				.findViewById(R.id.new_joker_button);
+		newBtn = (Button) linearLayout.findViewById(R.id.new_joker_button);
 		newBtn.setOnClickListener(this);
-		Button hotBtn = (Button) linearLayout
-				.findViewById(R.id.hot_joker_button);
+
+		hotBtn = (Button) linearLayout.findViewById(R.id.hot_joker_button);
 		hotBtn.setOnClickListener(this);
 
 		RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(
@@ -58,12 +61,24 @@ public class JokerViewLayout implements OnClickListener {
 		layout.addView(linearLayout, rllp);
 		// 初始化joker视图
 		this.onClick(newBtn);
+	}
 
+	/**
+	 * 恢复按钮的样式
+	 */
+	private void resetBtn() {
+		newBtn.setBackgroundColor(((Activity) context).getResources().getColor(
+				R.color.white));
+		hotBtn.setBackgroundColor(((Activity) context).getResources().getColor(
+				R.color.white));
 	}
 
 	@Override
 	public void onClick(View v) {
-		// Button btn = (Button) v;
+		this.resetBtn();
+		Button btn = (Button) v;
+		btn.setBackgroundColor(((Activity) context).getResources().getColor(
+				R.color.blue));
 		switch (v.getId()) {
 		case R.id.new_joker_button:
 			frameLayout.removeAllViews();

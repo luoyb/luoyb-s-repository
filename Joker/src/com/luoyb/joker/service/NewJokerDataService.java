@@ -9,13 +9,13 @@ import cc.cnfc.message.service.MJoker;
 
 import com.luoyb.joker.adapter.JokerAdapter;
 
-public class JokerDataService extends
+public class NewJokerDataService extends
 		AsyncTask<Integer, Void, List<Map<String, Object>>> {
 
 	private List<Map<String, Object>> data;
 	private JokerAdapter adapter;
 
-	public JokerDataService(JokerAdapter adapter, List<Map<String, Object>> data) {
+	public NewJokerDataService(JokerAdapter adapter, List<Map<String, Object>> data) {
 		this.adapter = adapter;
 		this.data = data;
 	}
@@ -25,7 +25,7 @@ public class JokerDataService extends
 	protected List<Map<String, Object>> doInBackground(Integer... params) {
 		int page = params[0];
 		JokerResult result = MJoker.getMJoker("ltuoyb", "Vtll34vHseD^ss")
-				.findJokers(page);
+				.findNewJokers(page);
 		return (List<Map<String, Object>>) result.getPage().getQueryList();
 	}
 

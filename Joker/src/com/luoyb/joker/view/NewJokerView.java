@@ -9,7 +9,7 @@ import android.content.Context;
 import com.luoyb.joker.adapter.JokerAdapter;
 import com.luoyb.joker.core.BounceListView;
 import com.luoyb.joker.core.InfiniteScrollListener;
-import com.luoyb.joker.service.JokerDataService;
+import com.luoyb.joker.service.NewJokerDataService;
 
 public class NewJokerView {
 
@@ -31,10 +31,10 @@ public class NewJokerView {
 		lsView.setOnScrollListener(new InfiniteScrollListener(5) {
 			@Override
 			public void loadMore(int page, int totalItemsCount) {
-				new JokerDataService(adapter, data).execute(page);
+				new NewJokerDataService(adapter, data).execute(page);
 			}
 		});
-		new JokerDataService(adapter, data).execute(1);
+		new NewJokerDataService(adapter, data).execute(1);
 		return lsView;
 	}
 }
