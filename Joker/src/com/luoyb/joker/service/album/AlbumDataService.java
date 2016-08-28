@@ -1,21 +1,22 @@
-package com.luoyb.joker.service;
+package com.luoyb.joker.service.album;
 
 import java.util.List;
 import java.util.Map;
 
 import android.os.AsyncTask;
-import cc.cnfc.message.dto.JokerResult;
-import cc.cnfc.message.service.MJoker;
+import cc.cnfc.message.dto.MPageResult;
+import cc.cnfc.message.service.joker.MAlbum;
 
-import com.luoyb.joker.adapter.JokerAdapter;
+import com.luoyb.joker.adapter.AlbumAdapter;
+import com.luoyb.joker.util.Const;
 
-public class NewJokerDataService extends
+public class AlbumDataService extends
 		AsyncTask<Integer, Void, List<Map<String, Object>>> {
 
 	private List<Map<String, Object>> data;
-	private JokerAdapter adapter;
+	private AlbumAdapter adapter;
 
-	public NewJokerDataService(JokerAdapter adapter, List<Map<String, Object>> data) {
+	public AlbumDataService(AlbumAdapter adapter, List<Map<String, Object>> data) {
 		this.adapter = adapter;
 		this.data = data;
 	}
@@ -24,8 +25,8 @@ public class NewJokerDataService extends
 	@Override
 	protected List<Map<String, Object>> doInBackground(Integer... params) {
 		int page = params[0];
-		JokerResult result = MJoker.getMJoker("ltuoyb", "Vtll34vHseD^ss")
-				.findNewJokers(page);
+		MPageResult result = MAlbum.getMAlbum(Const.mSysId, Const.mToken)
+				.findNewAlbums(page);
 		return (List<Map<String, Object>>) result.getPage().getQueryList();
 	}
 

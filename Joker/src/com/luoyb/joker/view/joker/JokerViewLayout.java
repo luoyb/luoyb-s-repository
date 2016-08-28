@@ -1,4 +1,4 @@
-package com.luoyb.joker.view;
+package com.luoyb.joker.view.joker;
 
 import org.json.JSONObject;
 

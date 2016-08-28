@@ -1,4 +1,4 @@
-package com.luoyb.joker.view;
+package com.luoyb.joker.view.joker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,9 @@ import android.content.Context;
 import com.luoyb.joker.adapter.JokerAdapter;
 import com.luoyb.joker.core.BounceListView;
 import com.luoyb.joker.core.InfiniteScrollListener;
-import com.luoyb.joker.service.HotJokerDataService;
+import com.luoyb.joker.service.joker.NewJokerDataService;
 
-public class HotJokerView {
+public class NewJokerView {
 
 	private List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 
@@ -19,7 +19,7 @@ public class HotJokerView {
 
 	private Context context;
 
-	public HotJokerView(Context context) {
+	public NewJokerView(Context context) {
 		this.context = context;
 	}
 
@@ -31,10 +31,10 @@ public class HotJokerView {
 		lsView.setOnScrollListener(new InfiniteScrollListener(5) {
 			@Override
 			public void loadMore(int page, int totalItemsCount) {
-				new HotJokerDataService(adapter, data).execute(page);
+				new NewJokerDataService(adapter, data).execute(page);
 			}
 		});
-		new HotJokerDataService(adapter, data).execute(1);
+		new NewJokerDataService(adapter, data).execute(1);
 		return lsView;
 	}
 }

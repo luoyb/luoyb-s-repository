@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.luoyb.joker.R;
-import com.luoyb.joker.service.JokerLikeCountService;
+import com.luoyb.joker.service.joker.JokerLikeCountService;
 import com.luoyb.joker.util.Utils;
 
 public class JokerAdapter extends BaseAdapter {

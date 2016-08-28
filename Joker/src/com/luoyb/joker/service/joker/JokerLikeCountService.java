@@ -1,7 +1,9 @@
-package com.luoyb.joker.service;
+package com.luoyb.joker.service.joker;
 
 import android.os.AsyncTask;
-import cc.cnfc.message.service.MJoker;
+import cc.cnfc.message.service.joker.MJoker;
+
+import com.luoyb.joker.util.Const;
 
 public class JokerLikeCountService extends AsyncTask<String, Void, Void> {
 
@@ -11,7 +13,7 @@ public class JokerLikeCountService extends AsyncTask<String, Void, Void> {
 	@Override
 	protected Void doInBackground(String... params) {
 		String jokerId = params[0];
-		MJoker.getMJoker("ltuoyb", "Vtll34vHseD^ss").addLikeCount(jokerId);
+		MJoker.getMJoker(Const.mSysId, Const.mToken).addLikeCount(jokerId);
 		return null;
 	}
 
