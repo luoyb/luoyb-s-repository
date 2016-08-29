@@ -1,21 +1,21 @@
 package com.luoyb.joker.core;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 public class ImageRender {
 
-	public static Map<String, Drawable> imageCache = Collections
-			.synchronizedMap(new HashMap<String, Drawable>());
+	public static Map<String, Bitmap> imageCache = Collections
+			.synchronizedMap(new HashMap<String, Bitmap>());
 
 	public ImageRender() {
 	}
@@ -29,49 +29,50 @@ public class ImageRender {
 	 */
 	public static void renderImage(String url, View view) {
 		ImageRender.view = view;
-		Drawable drawable = imageCache.get(url);
-		if (drawable != null) {
-			renderDrawable2View(drawable);
+		Bitmap bitmap = imageCache.get(url);
+		if (bitmap != null) {
+			Log.i("", "hit cache : " + url);
+			renderDrawable2View(bitmap);
 		} else {
+			Log.i("", "not hit cache : " + url);
 			new DownloadImageTask().execute(url);
 		}
 	}
 
-	public static void renderDrawable2View(Drawable drawable) {
-		if (view instanceof TextView) {
-			// / 这一步必须要做,否则不会显示.
-			drawable.setBounds(0, 0, drawable.getMinimumWidth() / 10,
-					drawable.getMinimumHeight() / 10);
-			((TextView) view).setCompoundDrawables(drawable, null, null, null);
-		} else {
-			Log.i("ImageRender",
-					"not imageRender of this type view , please implement");
+	public static void renderDrawable2View(Bitmap bitmap) {
+		if (view instanceof ImageView) {
+			((ImageView) view).setImageBitmap(bitmap);
+			return;
 		}
+		Log.i("ImageRender",
+				"not imageRender of this type view , please implement");
 	}
 }
 
-class DownloadImageTask extends AsyncTask<String, Void, Drawable> {
+class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 
 	private String imageUrl;
 
-	protected Drawable doInBackground(String... urls) {
+	protected Bitmap doInBackground(String... urls) {
 		imageUrl = urls[0];
 		return loadImageFromNetwork();
 	}
 
-	protected void onPostExecute(Drawable drawable) {
-		ImageRender.imageCache.put(imageUrl, drawable);
-		ImageRender.renderDrawable2View(drawable);
+	protected void onPostExecute(Bitmap bitmap) {
+		ImageRender.imageCache.put(imageUrl, bitmap);
+		ImageRender.renderDrawable2View(bitmap);
 	}
 
-	private Drawable loadImageFromNetwork() {
-		Drawable drawable = null;
+	private Bitmap loadImageFromNetwork() {
+		BitmapFactory.Options opts = new BitmapFactory.Options();
+		opts.inSampleSize = 4;
+		Bitmap bitmap = null;
 		try {
-			drawable = Drawable.createFromStream(
-					new URL(imageUrl).openStream(), null);
-		} catch (IOException e) {
-			Log.d("", e.getMessage());
+			bitmap = BitmapFactory.decodeStream(new URL(imageUrl).openStream(),
+					null, opts);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return drawable;
+		return bitmap;
 	}
 }

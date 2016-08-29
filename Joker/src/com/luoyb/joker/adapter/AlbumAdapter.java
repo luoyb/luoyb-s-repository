@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import cc.cnfc.message.pub.Const;
 
@@ -54,6 +55,8 @@ public class AlbumAdapter extends BaseAdapter {
 
 			holder.albumName = (TextView) convertView
 					.findViewById(R.id.albumName);
+			holder.albumCover = (ImageView) convertView
+					.findViewById(R.id.albumCover);
 			convertView.setTag(holder);
 		} else {
 			holder = (AlbumViewHolder) convertView.getTag();
@@ -66,7 +69,7 @@ public class AlbumAdapter extends BaseAdapter {
 		ImageRender.renderImage(
 				Const.DOMAIN
 						+ String.valueOf(data.get(position).get("coverUrl")),
-				holder.albumName);
+				holder.albumCover);
 
 		// 存放jokder的记录id，使得后面可以传递给单击事件监听器
 		holder.albumName.setTag(String.valueOf(data.get(position).get("id")));
@@ -84,4 +87,5 @@ public class AlbumAdapter extends BaseAdapter {
 
 final class AlbumViewHolder {
 	public TextView albumName;
+	public ImageView albumCover;
 }
