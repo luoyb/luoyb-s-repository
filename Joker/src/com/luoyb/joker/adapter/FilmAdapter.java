@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import cc.cnfc.message.pub.Const;
 
+import com.luoyb.joker.FilmCommentActivity;
 import com.luoyb.joker.R;
 import com.luoyb.joker.core.ImageRender;
 
@@ -73,11 +75,15 @@ public class FilmAdapter extends BaseAdapter {
 		// 存放jokder的记录id，使得后面可以传递给单击事件监听器
 		holder.filmName.setTag(String.valueOf(data.get(position).get("id")));
 
-		holder.filmName.setOnClickListener(new View.OnClickListener() {
+		convertView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				TextView tv = (TextView) view;
+				TextView tv = (TextView) view.findViewById(R.id.filmName);
 				String filmId = (String) tv.getTag();
+
+				Intent i = new Intent(context, FilmCommentActivity.class);
+				i.putExtra("filmId", filmId);
+				context.startActivity(i);
 			}
 		});
 		return convertView;

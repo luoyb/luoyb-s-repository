@@ -47,6 +47,15 @@
             </intent-filter>
         </activity>
         
+        <activity
+            android:name=".FilmCommentActivity"
+            android:label="电影评论" >
+            <intent-filter>
+                <action android:name="com.luoyb.joker.FilmCommentActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
         <activity 
             android:name="com.baidu.mobads.AppActivity" 
             android:configChanges="keyboard|keyboardHidden|orientation" 
