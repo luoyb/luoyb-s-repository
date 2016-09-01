@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewSwitcher.ViewFactory;
 import cc.cnfc.message.pub.Const;
 
@@ -24,8 +25,8 @@ import com.luoyb.joker.service.album.AlbumDetailDataService;
 
 public class AlbumDetailActivity extends Activity implements ViewFactory {
 
+	private TextView albumDetailName;
 	private ImageSwitcher imageSwitcher;
-
 	private AlbumDetailAdapter adapter;
 
 	private List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
@@ -35,6 +36,10 @@ public class AlbumDetailActivity extends Activity implements ViewFactory {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.album_detail);
 		Intent intent = this.getIntent();
+
+		// albumDetailName = (TextView)
+		// this.findViewById(R.id.album_detail_name);
+		// albumDetailName.setText(intent.getStringExtra("albumName"));
 
 		imageSwitcher = (ImageSwitcher) this.findViewById(R.id.album_switcher);
 		imageSwitcher.setFactory(this);

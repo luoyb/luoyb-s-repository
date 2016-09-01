@@ -40,7 +40,7 @@
         
         <activity
             android:name=".AlbumDetailActivity"
-            android:label="Album Detail Activity" >
+            android:label="相册欣赏" >
             <intent-filter>
                 <action android:name="com.luoyb.joker.AlbumDetailActivity" />
                 <category android:name="android.intent.category.DEFAULT" />

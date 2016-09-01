@@ -4,10 +4,10 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView 
+   <!--  <TextView 
+        android:id="@+id/album_detail_name"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Images of San Francisco" />
+        android:layout_height="wrap_content" /> -->
     
   	<Gallery 
 	    android:id="@+id/album_gallery"

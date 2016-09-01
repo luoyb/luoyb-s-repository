@@ -76,14 +76,16 @@ public class AlbumAdapter extends BaseAdapter {
 		// 存放jokder的记录id，使得后面可以传递给单击事件监听器
 		holder.albumName.setTag(String.valueOf(data.get(position).get("id")));
 
-		holder.albumName.setOnClickListener(new View.OnClickListener() {
+		convertView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				TextView tv = (TextView) view;
+				TextView tv = (TextView) view.findViewById(R.id.albumName);
 				String albumId = (String) tv.getTag();
+				String albumName = (String) tv.getText();
 
 				Intent i = new Intent(context, AlbumDetailActivity.class);
 				i.putExtra("albumId", albumId);
+				i.putExtra("albumName", albumName);
 				context.startActivity(i);
 			}
 		});
