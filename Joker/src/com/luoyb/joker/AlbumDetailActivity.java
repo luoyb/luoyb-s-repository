@@ -24,11 +24,6 @@ import com.luoyb.joker.service.album.AlbumDetailDataService;
 
 public class AlbumDetailActivity extends Activity implements ViewFactory {
 
-	Integer[] imageIDs = { R.drawable.tab_address_normal,
-			R.drawable.tab_find_frd_normal, R.drawable.tab_settings_normal,
-			R.drawable.tab_weixin_normal, R.drawable.tab_address_pressed,
-			R.drawable.tab_find_frd_pressed };
-
 	private ImageSwitcher imageSwitcher;
 
 	private AlbumDetailAdapter adapter;
