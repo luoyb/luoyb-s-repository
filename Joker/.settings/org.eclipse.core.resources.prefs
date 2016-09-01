@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/com/luoyb/joker/MainActivity.java=UTF-8
 encoding//src/com/luoyb/joker/service/album/AlbumDataService.java=UTF-8
+encoding//src/com/luoyb/joker/service/album/AlbumDetailDataService.java=UTF-8
+encoding//src/com/luoyb/joker/service/film/FilmDataService.java=UTF-8
 encoding//src/com/luoyb/joker/service/joker/HotJokerDataService.java=UTF-8
 encoding//src/com/luoyb/joker/service/joker/JokerLikeCountService.java=UTF-8
 encoding//src/com/luoyb/joker/service/joker/NewJokerDataService.java=UTF-8

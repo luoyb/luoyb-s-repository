@@ -7,9 +7,11 @@ import java.util.Map;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 
 public class ImageRender {
@@ -23,7 +25,7 @@ public class ImageRender {
 	private static View view;
 
 	/**
-	 * 渲染封面
+	 * 渲染图片
 	 * 
 	 * @param tv
 	 */
@@ -42,6 +44,10 @@ public class ImageRender {
 	public static void renderDrawable2View(Bitmap bitmap) {
 		if (view instanceof ImageView) {
 			((ImageView) view).setImageBitmap(bitmap);
+			return;
+		}
+		if (view instanceof ImageSwitcher) {
+			((ImageSwitcher) view).setImageDrawable(new BitmapDrawable(bitmap));
 			return;
 		}
 		Log.i("ImageRender",
@@ -65,7 +71,7 @@ class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 
 	private Bitmap loadImageFromNetwork() {
 		BitmapFactory.Options opts = new BitmapFactory.Options();
-		opts.inSampleSize = 4;
+		opts.inSampleSize = 8;
 		Bitmap bitmap = null;
 		try {
 			bitmap = BitmapFactory.decodeStream(new URL(imageUrl).openStream(),

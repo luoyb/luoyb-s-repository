@@ -26,7 +26,9 @@
         android:icon="@drawable/joker"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
         <meta-data android:name="BaiduMobAd_APP_ID" android:value="e866cfb0" />
+        
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -35,6 +37,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".AlbumDetailActivity"
+            android:label="Album Detail Activity" >
+            <intent-filter>
+                <action android:name="com.luoyb.joker.AlbumDetailActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
         <activity 
             android:name="com.baidu.mobads.AppActivity" 
             android:configChanges="keyboard|keyboardHidden|orientation" 

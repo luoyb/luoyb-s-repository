@@ -30,47 +30,58 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int bottom_bar=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int joker=0x7f020002;
-        public static final int like_icon=0x7f020003;
-        public static final int tab_address_normal=0x7f020004;
-        public static final int tab_address_pressed=0x7f020005;
-        public static final int tab_find_frd_normal=0x7f020006;
-        public static final int tab_find_frd_pressed=0x7f020007;
-        public static final int tab_settings_normal=0x7f020008;
-        public static final int tab_settings_pressed=0x7f020009;
-        public static final int tab_weixin_normal=0x7f02000a;
-        public static final int tab_weixin_pressed=0x7f02000b;
+        public static final int apple017=0x7f020000;
+        public static final int apple018=0x7f020001;
+        public static final int apple019=0x7f020002;
+        public static final int apple020=0x7f020003;
+        public static final int apple021=0x7f020004;
+        public static final int bottom_bar=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int joker=0x7f020007;
+        public static final int like_icon=0x7f020008;
+        public static final int tab_address_normal=0x7f020009;
+        public static final int tab_address_pressed=0x7f02000a;
+        public static final int tab_find_frd_normal=0x7f02000b;
+        public static final int tab_find_frd_pressed=0x7f02000c;
+        public static final int tab_settings_normal=0x7f02000d;
+        public static final int tab_settings_pressed=0x7f02000e;
+        public static final int tab_weixin_normal=0x7f02000f;
+        public static final int tab_weixin_pressed=0x7f020010;
     }
     public static final class id {
-        public static final int action_settings=0x7f090011;
-        public static final int albumCover=0x7f090001;
-        public static final int albumName=0x7f090002;
-        public static final int hot_joker_button=0x7f090005;
-        public static final int id_tab_address=0x7f09000b;
-        public static final int id_tab_address_img=0x7f09000c;
-        public static final int id_tab_frd=0x7f09000d;
-        public static final int id_tab_frd_img=0x7f09000e;
-        public static final int id_tab_settings=0x7f09000f;
-        public static final int id_tab_settings_img=0x7f090010;
-        public static final int id_tab_weixin=0x7f090009;
-        public static final int id_tab_weixin_img=0x7f09000a;
+        public static final int action_settings=0x7f090015;
+        public static final int albumCover=0x7f090003;
+        public static final int albumName=0x7f090004;
+        public static final int album_gallery=0x7f090001;
+        public static final int album_switcher=0x7f090002;
+        public static final int filmCover=0x7f090005;
+        public static final int filmName=0x7f090006;
+        public static final int hot_joker_button=0x7f090009;
+        public static final int id_tab_address=0x7f09000f;
+        public static final int id_tab_address_img=0x7f090010;
+        public static final int id_tab_frd=0x7f090011;
+        public static final int id_tab_frd_img=0x7f090012;
+        public static final int id_tab_settings=0x7f090013;
+        public static final int id_tab_settings_img=0x7f090014;
+        public static final int id_tab_weixin=0x7f09000d;
+        public static final int id_tab_weixin_img=0x7f09000e;
         public static final int id_viewpage=0x7f090000;
-        public static final int jokerCreateTime=0x7f090008;
-        public static final int jokerLikeCount=0x7f090007;
-        public static final int jokerText=0x7f090006;
-        public static final int joker_button_layout=0x7f090003;
-        public static final int new_joker_button=0x7f090004;
+        public static final int jokerCreateTime=0x7f09000c;
+        public static final int jokerLikeCount=0x7f09000b;
+        public static final int jokerText=0x7f09000a;
+        public static final int joker_button_layout=0x7f090007;
+        public static final int new_joker_button=0x7f090008;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int album_list_item=0x7f030001;
-        public static final int joker_button=0x7f030002;
-        public static final int joker_list_item=0x7f030003;
-        public static final int menu_bar=0x7f030004;
-        public static final int tab03=0x7f030005;
-        public static final int tab04=0x7f030006;
+        public static final int album_detail=0x7f030001;
+        public static final int album_list_item=0x7f030002;
+        public static final int film_list_item=0x7f030003;
+        public static final int joker_button=0x7f030004;
+        public static final int joker_list_item=0x7f030005;
+        public static final int menu_bar=0x7f030006;
+        public static final int tab03=0x7f030007;
+        public static final int tab04=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -108,4 +119,25 @@ public final class R {
          */
         public static final int AppTheme=0x7f070001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a AlbumGallery.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #AlbumGallery_android_galleryItemBackground android:galleryItemBackground}</code></td><td></td></tr>
+           </table>
+           @see #AlbumGallery_android_galleryItemBackground
+         */
+        public static final int[] AlbumGallery = {
+            0x0101004c
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#galleryItemBackground}
+          attribute's value can be found in the {@link #AlbumGallery} array.
+          @attr name android:galleryItemBackground
+        */
+        public static final int AlbumGallery_android_galleryItemBackground = 0;
+    };
 }

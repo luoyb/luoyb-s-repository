@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 
 import com.luoyb.joker.core.ViewPaperAdapter;
 import com.luoyb.joker.view.album.AlbumViewLayout;
+import com.luoyb.joker.view.film.FilmViewLayout;
 import com.luoyb.joker.view.joker.JokerViewLayout;
 
 @SuppressLint("InflateParams")
@@ -75,12 +76,11 @@ public class MainActivity extends Activity implements OnClickListener,
 		// viewPaper
 		LayoutInflater mLayoutInflater = LayoutInflater.from(this);
 
-		View tab03 = mLayoutInflater.inflate(R.layout.tab03, null);
 		View tab04 = mLayoutInflater.inflate(R.layout.tab04, null);
 
 		mViews.add(new JokerViewLayout(this).getView());
 		mViews.add(new AlbumViewLayout(this).getView());
-		mViews.add(tab03);
+		mViews.add(new FilmViewLayout(this).getView());
 		mViews.add(tab04);
 
 		mViewPager = (ViewPager) findViewById(R.id.id_viewpage);

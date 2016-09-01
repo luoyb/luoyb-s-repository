@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Images of San Francisco" />
+    
+  	<Gallery 
+	    android:id="@+id/album_gallery"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content" />
+  	
+  	<ImageSwitcher 
+      	android:id="@+id/album_switcher"
+      	android:layout_width="fill_parent"
+      	android:layout_height="fill_parent" />
+
+</LinearLayout>
