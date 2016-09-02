@@ -37,6 +37,9 @@ public class FilmCommentActivity extends Activity {
 		Intent intent = this.getIntent();
 		filmId = intent.getStringExtra("filmId");
 
+		this.setTitle(this.getString(R.string.film_comment_activity_name) + "｜"
+				+ intent.getStringExtra("filmName"));
+
 		RelativeLayout layout = new RelativeLayout(this);
 		setContentView(layout);
 

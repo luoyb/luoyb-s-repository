@@ -81,9 +81,11 @@ public class MusicAdapter extends BaseAdapter {
 			public void onClick(View view) {
 				TextView tv = (TextView) view.findViewById(R.id.musicName);
 				String musicId = (String) tv.getTag();
+				String musicName = (String) tv.getText();
 
 				Intent i = new Intent(context, MusicCommentActivity.class);
 				i.putExtra("musicId", musicId);
+				i.putExtra("musicName", musicName);
 				context.startActivity(i);
 			}
 		});

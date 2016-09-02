@@ -4,5 +4,8 @@
     <string name="app_name">欢乐时光</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="album_detail_activity_name">相册欣赏</string>
+    <string name="film_comment_activity_name">电影评论</string>
+    <string name="music_comment_activity_name">音乐评论</string>
 
 </resources>

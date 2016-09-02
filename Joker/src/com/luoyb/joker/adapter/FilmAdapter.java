@@ -80,9 +80,11 @@ public class FilmAdapter extends BaseAdapter {
 			public void onClick(View view) {
 				TextView tv = (TextView) view.findViewById(R.id.filmName);
 				String filmId = (String) tv.getTag();
+				String filmName = (String) tv.getText();
 
 				Intent i = new Intent(context, FilmCommentActivity.class);
 				i.putExtra("filmId", filmId);
+				i.putExtra("filmName", filmName);
 				context.startActivity(i);
 			}
 		});

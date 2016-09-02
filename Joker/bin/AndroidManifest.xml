@@ -40,7 +40,7 @@
         
         <activity
             android:name=".AlbumDetailActivity"
-            android:label="相册欣赏" >
+            android:label="@string/album_detail_activity_name" >
             <intent-filter>
                 <action android:name="com.luoyb.joker.AlbumDetailActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -49,7 +49,7 @@
         
         <activity
             android:name=".FilmCommentActivity"
-            android:label="电影评论" >
+            android:label="@string/film_comment_activity_name" >
             <intent-filter>
                 <action android:name="com.luoyb.joker.FilmCommentActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -58,7 +58,7 @@
         
          <activity
             android:name=".MusicCommentActivity"
-            android:label="音乐评论" >
+            android:label="@string/music_comment_activity_name" >
             <intent-filter>
                 <action android:name="com.luoyb.joker.MusicCommentActivity" />
                 <category android:name="android.intent.category.DEFAULT" />

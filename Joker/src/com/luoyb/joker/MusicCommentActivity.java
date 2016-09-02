@@ -37,6 +37,9 @@ public class MusicCommentActivity extends Activity {
 		Intent intent = this.getIntent();
 		musicId = intent.getStringExtra("musicId");
 
+		this.setTitle(this.getString(R.string.music_comment_activity_name)
+				+ "｜" + intent.getStringExtra("musicName"));
+
 		RelativeLayout layout = new RelativeLayout(this);
 		setContentView(layout);
 
