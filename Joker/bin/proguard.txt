@@ -1,0 +1,18 @@
+# view res/layout/activity_main.xml #generated:7
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view AndroidManifest.xml #generated:68
+-keep class com.baidu.mobads.AppActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:41
+-keep class com.luoyb.joker.AlbumDetailActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:50
+-keep class com.luoyb.joker.FilmCommentActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:32
+-keep class com.luoyb.joker.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:59
+-keep class com.luoyb.joker.MusicCommentActivity { <init>(...); }
+

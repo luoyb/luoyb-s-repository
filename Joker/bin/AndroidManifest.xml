@@ -27,7 +27,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
-        <meta-data android:name="BaiduMobAd_APP_ID" android:value="e866cfb0" />
+        <meta-data android:name="BaiduMobAd_APP_ID" android:value="e8372c93" />
         
         <activity
             android:name=".MainActivity"
