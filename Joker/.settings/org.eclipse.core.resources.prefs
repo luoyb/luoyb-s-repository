@@ -7,4 +7,6 @@ encoding//src/com/luoyb/joker/service/film/FilmDataService.java=UTF-8
 encoding//src/com/luoyb/joker/service/joker/HotJokerDataService.java=UTF-8
 encoding//src/com/luoyb/joker/service/joker/JokerLikeCountService.java=UTF-8
 encoding//src/com/luoyb/joker/service/joker/NewJokerDataService.java=UTF-8
+encoding//src/com/luoyb/joker/service/music/MusicCommentDataService.java=UTF-8
+encoding//src/com/luoyb/joker/service/music/MusicDataService.java=UTF-8
 encoding/<project>=UTF-8

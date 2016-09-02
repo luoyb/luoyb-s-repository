@@ -56,6 +56,15 @@
             </intent-filter>
         </activity>
         
+         <activity
+            android:name=".MusicCommentActivity"
+            android:label="音乐评论" >
+            <intent-filter>
+                <action android:name="com.luoyb.joker.MusicCommentActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
         <activity 
             android:name="com.baidu.mobads.AppActivity" 
             android:configChanges="keyboard|keyboardHidden|orientation" 

@@ -44,7 +44,7 @@ public final class R {
         public static final int tab_weixin_pressed=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f090017;
+        public static final int action_settings=0x7f09001b;
         public static final int albumCover=0x7f090003;
         public static final int albumName=0x7f090004;
         public static final int album_gallery=0x7f090001;
@@ -67,6 +67,10 @@ public final class R {
         public static final int jokerLikeCount=0x7f09000d;
         public static final int jokerText=0x7f09000c;
         public static final int joker_button_layout=0x7f090009;
+        public static final int musicComment=0x7f090017;
+        public static final int musicCommentCreateTime=0x7f090018;
+        public static final int musicCover=0x7f090019;
+        public static final int musicName=0x7f09001a;
         public static final int new_joker_button=0x7f09000a;
     }
     public static final class layout {
@@ -78,8 +82,8 @@ public final class R {
         public static final int joker_button=0x7f030005;
         public static final int joker_list_item=0x7f030006;
         public static final int menu_bar=0x7f030007;
-        public static final int tab03=0x7f030008;
-        public static final int tab04=0x7f030009;
+        public static final int music_comment_item=0x7f030008;
+        public static final int music_list_item=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f080000;

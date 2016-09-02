@@ -10,7 +10,6 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +21,7 @@ import com.luoyb.joker.core.ViewPaperAdapter;
 import com.luoyb.joker.view.album.AlbumViewLayout;
 import com.luoyb.joker.view.film.FilmViewLayout;
 import com.luoyb.joker.view.joker.JokerViewLayout;
+import com.luoyb.joker.view.music.MusicViewLayout;
 
 @SuppressLint("InflateParams")
 public class MainActivity extends Activity implements OnClickListener,
@@ -74,14 +74,10 @@ public class MainActivity extends Activity implements OnClickListener,
 		mSettingImg = (ImageButton) findViewById(R.id.id_tab_settings_img);
 
 		// viewPaper
-		LayoutInflater mLayoutInflater = LayoutInflater.from(this);
-
-		View tab04 = mLayoutInflater.inflate(R.layout.tab04, null);
-
 		mViews.add(new JokerViewLayout(this).getView());
 		mViews.add(new AlbumViewLayout(this).getView());
 		mViews.add(new FilmViewLayout(this).getView());
-		mViews.add(tab04);
+		mViews.add(new MusicViewLayout(this).getView());
 
 		mViewPager = (ViewPager) findViewById(R.id.id_viewpage);
 		mPagerAdapter = new ViewPaperAdapter(mViews);
