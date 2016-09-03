@@ -1,34 +1,31 @@
 package com.luoyb.joker.view.film;
 
-import org.json.JSONObject;
-
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-import com.baidu.mobads.AdSettings;
-import com.baidu.mobads.AdView;
-import com.baidu.mobads.AdViewListener;
-import com.baidu.mobads.AppActivity;
-import com.baidu.mobads.AppActivity.ActionBarColorTheme;
+import com.wandoujia.ads.sdk.Ads;
 
 public class FilmViewLayout implements OnClickListener {
 
 	private Context context;
+
+	private RelativeLayout layout;
 
 	public FilmViewLayout(Context context) {
 		this.context = context;
 	}
 
 	public RelativeLayout getView() {
-		RelativeLayout layout = new RelativeLayout(context);
+		layout = new RelativeLayout(context);
 		// setContentView(layout);
 		this.inflateByFilmListView(layout);
-		// TODO 段子页有一个了，再显示一个会报错
-		// this.inflateByAdView(layout);
+		this.inflateByAdView();
 		return layout;
 	}
 
@@ -50,50 +47,46 @@ public class FilmViewLayout implements OnClickListener {
 		layout.addView(new FilmView(context).getView(), rllp);
 	}
 
+	private static final String APP_ID = "100043510";
+	private static final String SECRET_KEY = "297fd1105b04acedd1bd3a020dd11105";
+	private static final String BANNER = "a93ed415e2edb8535628f19b5f200f4e";
+
 	/**
-	 * 获取百度广告view
+	 * 获取豌豆荚广告view
 	 * 
 	 * @return
 	 */
-	private void inflateByAdView(ViewGroup layout) {
-		AppActivity
-				.setActionBarColorTheme(ActionBarColorTheme.ACTION_BAR_RED_THEME);
-		// 人群属性
-		AdSettings.setKey(new String[] { "baidu", "中国" }); // 创建广告view
-		String adPlaceID = "2015351";// 重要:请填上你的代码位ID,否则无法请求到广告 adView = new
-		// AdView(this,adPlaceId);
-		AdView adView = new AdView(context, adPlaceID);
-		// 设置监听器
-		adView.setListener(new AdViewListener() {
-			public void onAdSwitch() {
-				Log.w("AdView", "onAdSwitch");
+	private void inflateByAdView() {
+		new AsyncTask<Void, Void, Boolean>() {
+			@Override
+			protected Boolean doInBackground(Void... params) {
+				try {
+					Ads.init(context, APP_ID, SECRET_KEY);
+					return true;
+				} catch (Exception e) {
+					Log.e("ads-sample", "error", e);
+					return false;
+				}
 			}
 
-			public void onAdShow(JSONObject info) {
-				// 广告已经渲染出来
-				Log.w("AdView", "onAdShow " + info.toString());
-			}
+			@Override
+			protected void onPostExecute(Boolean success) {
+				if (success) {
+					Ads.preLoad(BANNER, Ads.AdFormat.banner);
+					View bannerView = Ads.createBannerView(context, BANNER);
 
-			public void onAdReady(AdView adView) {
-				// 资源已经缓存完毕，还没有渲染出来
-				Log.w("AdView", "onAdReady " + adView);
+					RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(
+							RelativeLayout.LayoutParams.FILL_PARENT,
+							RelativeLayout.LayoutParams.WRAP_CONTENT);
+					rllp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+					layout.addView(bannerView, rllp);
+				} else {
+					TextView errorMsg = new TextView(context);
+					errorMsg.setText("init failed");
+					layout.addView(errorMsg);
+				}
 			}
-
-			public void onAdFailed(String reason) {
-				Log.w("AdView", "onAdFailed " + reason);
-			}
-
-			public void onAdClick(JSONObject info) {
-				// Log.w("AdView", "onAdClick " + info.toString());
-
-			}
-		});
-		// 将adView添加到父控件中(注：该父控件不一定为您的根控件，只要该控件能通过addView能添加广告视图即可)
-		RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.FILL_PARENT,
-				RelativeLayout.LayoutParams.WRAP_CONTENT);
-		rllp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		layout.addView(adView, rllp);
+		}.execute();
 	}
 
 }
