@@ -20,6 +20,7 @@ import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.AppActivity.ActionBarColorTheme;
 import com.luoyb.joker.R;
+import com.luoyb.joker.constant.BaiduAdConst;
 
 public class JokerViewLayout implements OnClickListener {
 
@@ -122,12 +123,12 @@ public class JokerViewLayout implements OnClickListener {
 	private void inflateByAdView(ViewGroup layout) {
 		AppActivity
 				.setActionBarColorTheme(ActionBarColorTheme.ACTION_BAR_RED_THEME);
-		AdView.setAppSid(context, "e8372c93");
+		AdView.setAppSid(context, BaiduAdConst.APP_SID);
 		// 人群属性
-		AdSettings.setKey(new String[] { "baidu", "中国" }); // 创建广告view
-		String adPlaceID = "2793929";// 重要:请填上你的代码位ID,否则无法请求到广告 adView = new
-		// AdView(this,adPlaceId);
-		AdView adView = new AdView(context, adPlaceID);
+		AdSettings.setKey(new String[] { "baidu", "中国" });
+		// 创建广告view
+		// 重要:请填上你的代码位ID,否则无法请求到广告 adView = new AdView(this,adPlaceId);
+		AdView adView = new AdView(context, BaiduAdConst.BANNER_AD_PLACE_ID);
 		// 设置监听器
 		adView.setListener(new AdViewListener() {
 			public void onAdSwitch() {

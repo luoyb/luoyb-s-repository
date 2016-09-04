@@ -3,7 +3,7 @@ package com.luoyb.joker.service.joker;
 import android.os.AsyncTask;
 import cc.cnfc.message.service.joker.MJoker;
 
-import com.luoyb.joker.util.Const;
+import com.luoyb.joker.constant.Const;
 
 public class JokerLikeCountService extends AsyncTask<String, Void, Void> {
 

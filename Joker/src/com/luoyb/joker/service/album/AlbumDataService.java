@@ -8,7 +8,7 @@ import cc.cnfc.message.dto.MPageResult;
 import cc.cnfc.message.service.joker.MAlbum;
 
 import com.luoyb.joker.adapter.AlbumAdapter;
-import com.luoyb.joker.util.Const;
+import com.luoyb.joker.constant.Const;
 
 public class AlbumDataService extends
 		AsyncTask<Integer, Void, List<Map<String, Object>>> {

@@ -8,7 +8,7 @@ import cc.cnfc.message.dto.MPageResult;
 import cc.cnfc.message.service.joker.MJoker;
 
 import com.luoyb.joker.adapter.JokerAdapter;
-import com.luoyb.joker.util.Const;
+import com.luoyb.joker.constant.Const;
 
 public class NewJokerDataService extends
 		AsyncTask<Integer, Void, List<Map<String, Object>>> {

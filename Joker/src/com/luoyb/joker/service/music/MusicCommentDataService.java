@@ -8,7 +8,7 @@ import cc.cnfc.message.dto.MPageResult;
 import cc.cnfc.message.service.joker.MMusic;
 
 import com.luoyb.joker.adapter.MusicCommentAdapter;
-import com.luoyb.joker.util.Const;
+import com.luoyb.joker.constant.Const;
 
 public class MusicCommentDataService extends
 		AsyncTask<String[], Void, List<Map<String, Object>>> {

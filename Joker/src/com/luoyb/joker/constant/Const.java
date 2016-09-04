@@ -1,4 +1,4 @@
-package com.luoyb.joker.util;
+package com.luoyb.joker.constant;
 
 public class Const {
 

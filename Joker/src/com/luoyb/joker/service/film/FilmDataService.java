@@ -8,7 +8,7 @@ import cc.cnfc.message.dto.MPageResult;
 import cc.cnfc.message.service.joker.MFilm;
 
 import com.luoyb.joker.adapter.FilmAdapter;
-import com.luoyb.joker.util.Const;
+import com.luoyb.joker.constant.Const;
 
 public class FilmDataService extends
 		AsyncTask<Integer, Void, List<Map<String, Object>>> {

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.luoyb.joker.constant.WdjAdConst;
 import com.wandoujia.ads.sdk.Ads;
 
 public class FilmViewLayout implements OnClickListener {
@@ -47,10 +48,6 @@ public class FilmViewLayout implements OnClickListener {
 		layout.addView(new FilmView(context).getView(), rllp);
 	}
 
-	private static final String APP_ID = "100043510";
-	private static final String SECRET_KEY = "297fd1105b04acedd1bd3a020dd11105";
-	private static final String BANNER = "a93ed415e2edb8535628f19b5f200f4e";
-
 	/**
 	 * 获取豌豆荚广告view
 	 * 
@@ -61,7 +58,7 @@ public class FilmViewLayout implements OnClickListener {
 			@Override
 			protected Boolean doInBackground(Void... params) {
 				try {
-					Ads.init(context, APP_ID, SECRET_KEY);
+					Ads.init(context, WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY);
 					return true;
 				} catch (Exception e) {
 					Log.e("ads-sample", "error", e);
@@ -72,8 +69,10 @@ public class FilmViewLayout implements OnClickListener {
 			@Override
 			protected void onPostExecute(Boolean success) {
 				if (success) {
-					Ads.preLoad(BANNER, Ads.AdFormat.banner);
-					View bannerView = Ads.createBannerView(context, BANNER);
+					Ads.preLoad(WdjAdConst.BANNER_AD_PLACE_ID,
+							Ads.AdFormat.banner);
+					View bannerView = Ads.createBannerView(context,
+							WdjAdConst.BANNER_AD_PLACE_ID);
 
 					RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(
 							RelativeLayout.LayoutParams.FILL_PARENT,
