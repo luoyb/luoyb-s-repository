@@ -122,6 +122,7 @@ public class JokerViewLayout implements OnClickListener {
 	private void inflateByAdView(ViewGroup layout) {
 		AppActivity
 				.setActionBarColorTheme(ActionBarColorTheme.ACTION_BAR_RED_THEME);
+		AdView.setAppSid(context, "e8372c93");
 		// 人群属性
 		AdSettings.setKey(new String[] { "baidu", "中国" }); // 创建广告view
 		String adPlaceID = "2793929";// 重要:请填上你的代码位ID,否则无法请求到广告 adView = new
