@@ -26,7 +26,7 @@ public class AlbumViewLayout implements OnClickListener {
 	public RelativeLayout getView() {
 		RelativeLayout layout = new RelativeLayout(context);
 		// setContentView(layout);
-		this.inflateByAlbumListView(layout);
+		this.inflateByAlbumGridView(layout);
 		// TODO 段子页有一个了，再显示一个会报错
 		// this.inflateByAdView(layout);
 		return layout;
@@ -35,6 +35,19 @@ public class AlbumViewLayout implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 
+	}
+
+	/**
+	 * 获取相册grid列表
+	 * 
+	 * @param layout
+	 */
+	private void inflateByAlbumGridView(ViewGroup layout) {
+		RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(
+				RelativeLayout.LayoutParams.FILL_PARENT,
+				RelativeLayout.LayoutParams.WRAP_CONTENT);
+		rllp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+		layout.addView(new AlbumGridView(context).getView(), rllp);
 	}
 
 	/**
