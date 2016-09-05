@@ -14,6 +14,8 @@ import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.AppActivity.ActionBarColorTheme;
+import com.luoyb.joker.constant.WdjAdConst;
+import com.luoyb.joker.view.ad.WdjAdView;
 
 public class MusicViewLayout implements OnClickListener {
 
@@ -27,8 +29,8 @@ public class MusicViewLayout implements OnClickListener {
 		RelativeLayout layout = new RelativeLayout(context);
 		// setContentView(layout);
 		this.inflateByMusicListView(layout);
-		// TODO 段子页有一个了，再显示一个会报错
-		// this.inflateByAdView(layout);
+		new WdjAdView(context, layout, WdjAdConst.BANNER_AD_PLACE_ID_03)
+				.inflateByBannerAdView();
 		return layout;
 	}
 

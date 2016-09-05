@@ -1,16 +1,13 @@
 package com.luoyb.joker.view.film;
 
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.luoyb.joker.constant.WdjAdConst;
-import com.wandoujia.ads.sdk.Ads;
+import com.luoyb.joker.view.ad.WdjAdView;
 
 public class FilmViewLayout implements OnClickListener {
 
@@ -26,7 +23,9 @@ public class FilmViewLayout implements OnClickListener {
 		layout = new RelativeLayout(context);
 		// setContentView(layout);
 		this.inflateByFilmListView(layout);
-		this.inflateByAdView();
+		// this.inflateByAdView();
+		new WdjAdView(context, layout, WdjAdConst.BANNER_AD_PLACE_ID_01)
+				.inflateByBannerAdView();
 		return layout;
 	}
 
@@ -53,39 +52,39 @@ public class FilmViewLayout implements OnClickListener {
 	 * 
 	 * @return
 	 */
-	private void inflateByAdView() {
-		new AsyncTask<Void, Void, Boolean>() {
-			@Override
-			protected Boolean doInBackground(Void... params) {
-				try {
-					Ads.init(context, WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY);
-					return true;
-				} catch (Exception e) {
-					Log.e("ads-sample", "error", e);
-					return false;
-				}
-			}
-
-			@Override
-			protected void onPostExecute(Boolean success) {
-				if (success) {
-					Ads.preLoad(WdjAdConst.BANNER_AD_PLACE_ID,
-							Ads.AdFormat.banner);
-					View bannerView = Ads.createBannerView(context,
-							WdjAdConst.BANNER_AD_PLACE_ID);
-
-					RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(
-							RelativeLayout.LayoutParams.FILL_PARENT,
-							RelativeLayout.LayoutParams.WRAP_CONTENT);
-					rllp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-					layout.addView(bannerView, rllp);
-				} else {
-					TextView errorMsg = new TextView(context);
-					errorMsg.setText("init failed");
-					layout.addView(errorMsg);
-				}
-			}
-		}.execute();
-	}
+	// private void inflateByAdView() {
+	// new AsyncTask<Void, Void, Boolean>() {
+	// @Override
+	// protected Boolean doInBackground(Void... params) {
+	// try {
+	// Ads.init(context, WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY);
+	// return true;
+	// } catch (Exception e) {
+	// Log.e("ads-sample", "error", e);
+	// return false;
+	// }
+	// }
+	//
+	// @Override
+	// protected void onPostExecute(Boolean success) {
+	// if (success) {
+	// Ads.preLoad(WdjAdConst.BANNER_AD_PLACE_ID,
+	// Ads.AdFormat.banner);
+	// View bannerView = Ads.createBannerView(context,
+	// WdjAdConst.BANNER_AD_PLACE_ID);
+	//
+	// RelativeLayout.LayoutParams rllp = new RelativeLayout.LayoutParams(
+	// RelativeLayout.LayoutParams.FILL_PARENT,
+	// RelativeLayout.LayoutParams.WRAP_CONTENT);
+	// rllp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+	// layout.addView(bannerView, rllp);
+	// } else {
+	// TextView errorMsg = new TextView(context);
+	// errorMsg.setText("init failed");
+	// layout.addView(errorMsg);
+	// }
+	// }
+	// }.execute();
+	// }
 
 }
