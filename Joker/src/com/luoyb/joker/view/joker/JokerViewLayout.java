@@ -21,6 +21,8 @@ import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.AppActivity.ActionBarColorTheme;
 import com.luoyb.joker.R;
 import com.luoyb.joker.constant.BaiduAdConst;
+import com.luoyb.joker.constant.WdjAdConst;
+import com.luoyb.joker.view.ad.WdjAdView;
 
 public class JokerViewLayout implements OnClickListener {
 
@@ -40,7 +42,9 @@ public class JokerViewLayout implements OnClickListener {
 		// setContentView(layout);
 		this.inflateByJokerListView(layout);
 		this.inflateByJokerButton(layout); // 该方法有操作初始化listview的动作，所以需放在listview方法后面
-		this.inflateByAdView(layout);
+		// this.inflateByAdView(layout);
+		new WdjAdView(context, layout, WdjAdConst.BANNER_AD_PLACE_ID_01)
+				.inflateByBannerAdView();
 		return layout;
 	}
 

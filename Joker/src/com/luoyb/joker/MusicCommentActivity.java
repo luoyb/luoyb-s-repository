@@ -19,9 +19,11 @@ import com.baidu.mobads.AdViewListener;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.AppActivity.ActionBarColorTheme;
 import com.luoyb.joker.adapter.MusicCommentAdapter;
+import com.luoyb.joker.constant.WdjAdConst;
 import com.luoyb.joker.core.BounceListView;
 import com.luoyb.joker.core.InfiniteScrollListener;
 import com.luoyb.joker.service.music.MusicCommentDataService;
+import com.luoyb.joker.view.ad.WdjAdView;
 
 public class MusicCommentActivity extends Activity {
 
@@ -44,6 +46,8 @@ public class MusicCommentActivity extends Activity {
 		setContentView(layout);
 
 		this.inflateByFilmCommentListView(layout);
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_05)
+				.inflateByBannerAdView();
 	}
 
 	private void inflateByFilmCommentListView(ViewGroup layout) {

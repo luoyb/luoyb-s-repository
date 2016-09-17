@@ -18,7 +18,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.luoyb.joker.core.ViewPaperAdapter;
-import com.luoyb.joker.view.album.AlbumViewLayout;
 import com.luoyb.joker.view.film.FilmViewLayout;
 import com.luoyb.joker.view.joker.JokerViewLayout;
 import com.luoyb.joker.view.music.MusicViewLayout;
@@ -75,7 +74,11 @@ public class MainActivity extends Activity implements OnClickListener,
 
 		// viewPaper
 		mViews.add(new JokerViewLayout(this).getView());
-		mViews.add(new AlbumViewLayout(this).getView());
+
+		// 相册tab很耗网络，先用jokertab替换
+		// mViews.add(new AlbumViewLayout(this).getView());
+		mViews.add(new JokerViewLayout(this).getView());
+
 		mViews.add(new FilmViewLayout(this).getView());
 		mViews.add(new MusicViewLayout(this).getView());
 

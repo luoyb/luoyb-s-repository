@@ -46,7 +46,7 @@ public class FilmCommentActivity extends Activity {
 		setContentView(layout);
 
 		this.inflateByFilmCommentListView(layout);
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_02)
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_03)
 				.inflateByBannerAdView();
 	}
 

@@ -24,7 +24,7 @@ public class FilmViewLayout implements OnClickListener {
 		// setContentView(layout);
 		this.inflateByFilmListView(layout);
 		// this.inflateByAdView();
-		new WdjAdView(context, layout, WdjAdConst.BANNER_AD_PLACE_ID_01)
+		new WdjAdView(context, layout, WdjAdConst.BANNER_AD_PLACE_ID_02)
 				.inflateByBannerAdView();
 		return layout;
 	}

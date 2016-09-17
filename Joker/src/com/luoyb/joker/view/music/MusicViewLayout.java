@@ -29,7 +29,7 @@ public class MusicViewLayout implements OnClickListener {
 		RelativeLayout layout = new RelativeLayout(context);
 		// setContentView(layout);
 		this.inflateByMusicListView(layout);
-		new WdjAdView(context, layout, WdjAdConst.BANNER_AD_PLACE_ID_03)
+		new WdjAdView(context, layout, WdjAdConst.BANNER_AD_PLACE_ID_04)
 				.inflateByBannerAdView();
 		return layout;
 	}
