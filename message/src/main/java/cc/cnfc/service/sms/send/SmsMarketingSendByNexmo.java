@@ -31,8 +31,7 @@ public class SmsMarketingSendByNexmo extends SmsSendInterface {
 			String rawMessage = "【" + smsPrefix + "】" + content.trim() + " 退订回复TD";
 			// String encodeMessage = URLEncoder.encode(rawMessage, "UTF-8");
 
-			String url = "http://api.paasoo.com/json?key=ndnckk&secret=WA1VNlfQ&to=" + mobileWithPrefix + "&text="
-					+ rawMessage;
+			String url = "http://api.paasoo.com/json?key=&secret=&to=" + mobileWithPrefix + "&text=" + rawMessage;
 			SmsResult result = new RestTemplate().getForObject(url, SmsResult.class);
 
 			String sendStatus = "0".equals(result.getStatus()) ? SmsSendStatus.DELIVER_SUCCESS.toString()

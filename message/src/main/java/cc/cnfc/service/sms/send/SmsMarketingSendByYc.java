@@ -59,8 +59,8 @@ public class SmsMarketingSendByYc extends SmsSendInterface {
 	}
 
 	protected String smsSvcUrl = "http://115.29.47.151:8860";
-	protected String cust_code = "600107";
-	protected String password = "94UWIBQL25";
+	protected String cust_code = "";
+	protected String password = "";
 
 	/**
 	 * 多个手机号码用英文逗号分割

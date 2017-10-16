@@ -31,9 +31,9 @@ public class SmsSendByChonry extends SmsSendInterface {
 			// 创建StringBuffer对象用来操作字符串
 			StringBuffer sb = new StringBuffer("http://web.cr6868.com/asmx/smsservice.aspx?");
 			// 向StringBuffer追加用户名
-			sb.append("name=15759252261");
+			sb.append("name=");
 			// 向StringBuffer追加密码（登陆网页版，在管理中心--基本资料--接口密码，是28位的）
-			sb.append("&pwd=E27A77C077E4708B82DA29CF90DD");
+			sb.append("&pwd=");
 			// 向StringBuffer追加手机号码
 			sb.append("&mobile=" + mobile);
 			// 向StringBuffer追加消息内容转URL标准码

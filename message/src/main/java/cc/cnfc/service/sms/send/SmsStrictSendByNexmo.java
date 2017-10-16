@@ -31,8 +31,7 @@ public class SmsStrictSendByNexmo extends SmsSendInterface {
 			String rawMessage = "【" + smsPrefix + "】" + content.trim();
 			// String encodeMessage = URLEncoder.encode(rawMessage, "UTF-8");
 
-			String url = "http://101.200.78.141/api/json?key=xmhfkj&secret=WoFkMxoP&to=" + mobileWithPrefix + "&text="
-					+ rawMessage;
+			String url = "http://101.200.78.141/api/json?key=&secret=&to=" + mobileWithPrefix + "&text=" + rawMessage;
 			SmsResult result = new RestTemplate().getForObject(url, SmsResult.class);
 
 			String sendStatus = "0".equals(result.getStatus()) ? SmsSendStatus.DELIVER_SUCCESS.toString()
