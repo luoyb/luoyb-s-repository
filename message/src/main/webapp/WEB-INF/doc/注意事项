@@ -1,0 +1,1 @@
+1、**4ThirdParty类为对外的web service和rest类，里面的方法不能带有spring mvc的model，不然会报错；

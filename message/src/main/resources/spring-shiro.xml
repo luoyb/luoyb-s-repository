@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+	
+	
+	 <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"></bean>
+	
+	 <!-- 声明一个密码匹配器 -->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <!-- 设置该密码匹配器使用的算法是 md5 -->
+        <property name="hashAlgorithmName" value="md5"/>
+    </bean>
+
+    <!-- 声明一个自定义的 Realm -->
+    <bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+     	<property name="dataSource" ref="dataSource"/>
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+        <property name="permissionsLookupEnabled" value="true"/>
+        <property name="authenticationQuery" value="select mPwd from m_customer where mSysId = ?"/>
+        <property name="userRolesQuery" value="select roleId from m_customer_role where mSysId = ?"/>
+        <property name="permissionsQuery" value="select permissionId from m_role_permission where roleId = ?"/>
+    </bean>
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="jdbcRealm"/>
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.jsp"/>
+        <property name="successUrl" value="/wrap_index.jsp"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /login.jsp = authc
+				/logout = logout
+				/wrap_index.jsp = authc
+				/index.jsp = authc
+				/sms/** = authc
+				/smsBlacklist/** = authc
+				/smsTemplate/** = authc
+				/wx/** = authc
+				/wxReply/** = authc
+				/wxMenu/** = authc
+				/wxMaterial/** = authc
+				/customer/** = authc
+				/index/** = authc
+            </value>
+        </property>
+    </bean>
+
+</beans>

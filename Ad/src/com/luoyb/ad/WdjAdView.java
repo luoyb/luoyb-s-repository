@@ -20,11 +20,17 @@ public class WdjAdView {
 	private Context context;
 	private ViewGroup layout;
 	private String adPlaceId;
+	private String appId;
+	private String secretKey;
 
-	public WdjAdView(Context ctx, ViewGroup layout, String adPlaceId) {
+	public WdjAdView(Context ctx, ViewGroup layout, String adPlaceId,
+			String appId, String secretKey) {
 		this.context = ctx;
 		this.layout = layout;
 		this.adPlaceId = adPlaceId;
+		this.appId = appId;
+		this.secretKey = secretKey;
+
 	}
 
 	/**
@@ -38,8 +44,8 @@ public class WdjAdView {
 			protected Boolean doInBackground(Void... params) {
 				try {
 					Log.i("test", "ads init ...");
-					ThreadUtils.randomSleep();
-					Ads.init(context, WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY);
+					// ThreadUtils.randomSleep();
+					Ads.init(context, appId, secretKey);
 					return true;
 				} catch (Exception e) {
 					Log.e("ads-sample", "error", e);
@@ -51,7 +57,7 @@ public class WdjAdView {
 			protected void onPostExecute(Boolean success) {
 				if (success) {
 					Log.i("test", "ads pre load ...");
-					ThreadUtils.randomSleep();
+					// ThreadUtils.randomSleep();
 					Ads.preLoad(adPlaceId, Ads.AdFormat.banner);
 					View bannerView = Ads.createBannerView(context, adPlaceId);
 

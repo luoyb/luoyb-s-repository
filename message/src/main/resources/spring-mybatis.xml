@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd "
+	default-lazy-init="false">
+
+	<description>mybatis配置</description>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+	    <property name="dataSource" ref="dataSource" />  
+	    <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+	    <!-- 开启下面的配置则从xml文件读取sql语句，否则直接从mapper接口类读取sql语句 -->
+	    <!-- <property name="mapperLocations" value="classpath:/mybatis/*.xml"/> -->
+	    <property name="plugins">
+	        <array>
+	            <bean class="com.github.pagehelper.PageInterceptor">
+	                <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+	                <property name="properties">
+	                    <value>
+	                        <!-- helperDialect=mysql -->
+	                        reasonable=true
+	                        supportMethodsArguments=true
+	                        <!-- params=count=countSql -->
+	                        autoRuntimeDialect=true
+	                    </value>
+	                </property>
+	            </bean>
+	        </array>
+	    </property> 
+	</bean>  
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cc.cnfc.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
+	
+	<!-- 事务管理器配置,单数据源事务 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager4mybatis" proxy-target-class="true" />
+	
+</beans>

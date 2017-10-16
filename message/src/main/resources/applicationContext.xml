@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-lazy-init="false">
+
+	<description>Spring公共配置</description>
+	
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+     	<constructor-arg index="0">
+     		<list>
+     			<bean id="byteArrayHttpMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"></bean>
+     			<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
+     				<constructor-arg value="UTF-8"></constructor-arg>
+     			</bean>
+     			<bean id="resourceHttpMessageConverter" class="org.springframework.http.converter.ResourceHttpMessageConverter"></bean>
+     			<bean id="sourceHttpMessageConverter" class="org.springframework.http.converter.xml.SourceHttpMessageConverter"></bean>
+     			<bean id="allEncompassingFormHttpMessageConverter" class="org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter"></bean>
+     			<bean id="jaxb2RootElementHttpMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"></bean>
+     			<bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+     		</list>
+     	</constructor-arg>
+ 	</bean>
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<!-- 标准配置 -->
+				<value>classpath*:/application.properties</value>
+				<value>classpath*:/redis.properties</value>
+				<value>classpath*:/my.properties</value>
+				<!-- 服务器生产环境配置 -->
+				<value>file:/etc/message.properties</value> 
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 额外的配置文件-->
+	<bean id="myProperties" class="cc.cnfc.pub.config.MyProperties" >
+		<property name="sysDomain" value="${my.sysDomain}"></property>
+		<property name="imageDir" value="${my.imageDir}"></property>
+	</bean>
+	
+	<!-- webservice的注释掉，目前没在使用，并且有的机器也会报错 -->
+	<!-- <bean class="org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter">  
+    	<property name="baseAddress" value="${ws.base_address}"/>  
+	</bean> -->
+	
+	<!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
+	<context:component-scan base-package="cc.cnfc" />
+
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<aop:aspectj-autoproxy />
+
+	<import resource="classpath:spring-redis.xml"/>
+	<import resource="classpath:spring-mq.xml"/>
+	<import resource="classpath:spring-shiro.xml"/>
+	<import resource="classpath:spring-hibernate.xml"/>
+	<import resource="classpath:spring-mybatis.xml"/>
+	<!-- <import resource="classpath:spring-session.xml"/> -->
+	
+</beans>

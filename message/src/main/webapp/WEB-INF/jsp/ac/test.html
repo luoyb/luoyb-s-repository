@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style type="text/css">
+        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";font-size:14px;}
+        /* #l-map{height:300px;width:100%;} */
+        #r-result-begin{width:100%;}
+    </style>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=QyKaSfksBRtwHMRlGB9XdOvGrGlPyxqv"></script>
+    <title>关键字输入提示词条</title>
+</head>
+<body>
+    <div>
+        <div id="l-map-begin"></div>
+        <div id="r-result-begin">
+            <h4>出發地： *</h4>
+            <input type="text" id="suggestId-begin" value="" style="width:550px;height:35px;">
+        </div>
+        <div id="searchResultPanel-begin" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+    </div>
+
+    <div>
+        <div id="l-map-end"></div>
+        <div id="r-result-end">
+            <h4>目的地： *</h4>
+            <input type="text" id="suggestId-end" value="" style="width:550px;height:35px;">
+        </div>
+        <div id="searchResultPanel-end" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+    </div>
+
+    <div>
+        <h4>區號選擇： *</h4>
+        <select style="width:550px">
+            <option>+853</option>
+            <option>+856</option>
+            <option>+86</option>
+        </select>
+    </div>
+
+    <div>
+        <h4>手機號碼： *</h4>
+        <input type="text" id="mobile" value="" style="width:550px;height:35px;">
+    </div>
+
+    <div>
+        <h4>車型選擇 *</h4>
+        <label><input name="carType" type="radio" value="" />普通 </label>
+        <label><input name="carType" type="radio" value="" />大型 </label>
+        <label><input name="carType" type="radio" value="" />無障礙 </label>
+    </div>
+
+    <button style="margin-top:20px;">立即叫車</button>
+
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    function G(id) {
+        return document.getElementById(id);
+    }
+
+    var mapBegin = new BMap.Map("l-map-begin");
+    mapBegin.centerAndZoom("澳门",12);                   // 初始化地图,设置城市和地图级别。
+
+    var acBegin = new BMap.Autocomplete(    //建立一个自动完成的对象
+            {"input" : "suggestId-begin"
+                ,"location" : mapBegin
+            });
+
+    acBegin.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel-begin").innerHTML = str;
+    });
+
+    var myValueBegin;
+    acBegin.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValueBegin = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        G("searchResultPanel-begin").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValueBegin;
+
+        /* setPlace(); */
+    });
+
+
+    var mapEnd = new BMap.Map("l-map-end");
+    mapEnd.centerAndZoom("澳门",12);                   // 初始化地图,设置城市和地图级别。
+
+    var acEnd = new BMap.Autocomplete(    //建立一个自动完成的对象
+            {"input" : "suggestId-end"
+                ,"location" : mapEnd
+            });
+
+    acEnd.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel-end").innerHTML = str;
+    });
+
+    var myValueEnd;
+    acEnd.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValueEnd = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        G("searchResultPanel-end").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValueEnd;
+
+        /* setPlace(); */
+    });
+
+
+    function setPlace(){
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun(){
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search(myValue);
+    }
+</script>
+
+

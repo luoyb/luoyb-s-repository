@@ -1,0 +1,4 @@
+
+1、微信的‘网页授权获取用户基本信息’接口那边需要设置域名，如：b8f7d71c.ngrok.io
+
+2、设置Const.SYS_DOMAIN的值，如：https://b8f7d71c.ngrok.io/message

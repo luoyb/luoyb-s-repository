@@ -40,34 +40,68 @@ public class MainActivity extends Activity {
 	}
 
 	private void columnAds(ViewGroup layout) {
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_01)
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_01,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_02,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_03,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_04,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_05,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_06,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_07,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_08,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_09,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_10,
+		// WdjAdConst.APP_ID, WdjAdConst.SECRET_KEY)
+		// .inflateByBannerAdView();
+
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_01,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
 				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_02)
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_02,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
 				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_03)
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_03,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
 				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_04)
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_04,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
 				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_05)
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_05,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
+				.inflateByBannerAdView();
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_06,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
+				.inflateByBannerAdView();
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_07,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
+				.inflateByBannerAdView();
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_08,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
+				.inflateByBannerAdView();
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_09,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
+				.inflateByBannerAdView();
+		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_4_D_10,
+				WdjAdConst.APP_ID_4_D, WdjAdConst.SECRET_KEY_4_D)
 				.inflateByBannerAdView();
 
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_01)
-				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_02)
-				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_03)
-				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_04)
-				.inflateByBannerAdView();
-		new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_05)
-				.inflateByBannerAdView();
-
-		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_06)
-		// .inflateByBannerAdView();
-		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_07)
-		// .inflateByBannerAdView();
-		// new WdjAdView(this, layout, WdjAdConst.BANNER_AD_PLACE_ID_08)
-		// .inflateByBannerAdView();
 	}
 
 	@Override
