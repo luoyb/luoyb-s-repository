@@ -36,8 +36,8 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login.jsp"/>
-        <property name="successUrl" value="/wrap_index.jsp"/>
+        <property name="loginUrl" value="/main/toLogin.do"/>
+        <!-- <property name="successUrl" value="/wrap_index.jsp"/> -->
         <property name="filterChainDefinitions">
             <value>
                 /login.jsp = authc
